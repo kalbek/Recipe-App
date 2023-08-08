@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def show
@@ -13,5 +13,22 @@ class FoodsController < ApplicationController
   def new
     @food = current_user.foods.build
     @current_user = current_user
+  end
+
+  def create
+    @food = current_user.foods
+
+    if @food.save
+       redirect_to user_foods_path(@food.user, @food), notice: 'Post created successfully.'
+    else
+        flash.now[:alert] = @food.errors.full_messages.join(', ')
+    end
+  end
+
+  def destroy
+    @food = Food.find(params[:id])
+    # authorize! :destroy, @food # This line checks if the user is authorized to delete the post
+    @food.destroy
+    redirect_to user_foods_path, notice: 'Food was successfully deleted.'
   end
 end

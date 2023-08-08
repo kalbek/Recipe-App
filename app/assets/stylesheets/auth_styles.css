@@ -69,6 +69,39 @@
   padding: 2% 20% 0;
 }
 
+.flex-spaced {
+  display: flex;
+  justify-content: space-around;
+  /* padding: 2% 20% 0; */
+}
+
+.relative {
+  position: relative;
+}
+
+.topped-centered {
+  position: absolute;
+  top: 0;
+}
+
+.w-100 {
+  min-width: 30%;
+}
+
+.top-right-corner {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+
+.off-top {
+  margin-top: -10%;
+}
+
+.pv-50 {
+  padding: 1rem 0%;
+}
+
 .flex-column-centered {
   display: flex;
   flex-direction: column;
@@ -137,6 +170,27 @@
   gap: 3rem;
 }
 
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.logo p {
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.menu p {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu {
+  margin-top: 1rem;
+}
+
 .btn * {
   font-size: 15px;
   font-weight: bolder;
@@ -159,6 +213,14 @@
 }
 
 .reg {
+  display: flex;
+  text-align: center;
+  margin-top: 10%;
+  justify-content: center;
+  width: auto;
+}
+
+.table-body {
   display: flex;
   text-align: center;
   margin-top: 10%;

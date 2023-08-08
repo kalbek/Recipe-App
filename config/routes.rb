@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  
-  resources :foods, only: [:new, :create, :destroy]
-  resources :recipes, only: [:new, :create, :destroy]
-  resources :food_recipes, only: [:new, :create]
 
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  # resources :foods, only: [:new, :create, :destroy]
+  # resources :recipes, only: [:new, :create, :destroy]
+  # resources :food_recipes, only: [:new, :create]
+
+  # devise_for :users, controllers: { sessions: 'users/sessions' }
 
   # Defines the root path route ("/")
   root to: 'users#index'

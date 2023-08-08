@@ -18,15 +18,15 @@ td {
 }
 
 .gap-c3 {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 
-  .desc-scroll {
-    max-height: 8rem;
-    overflow-y: scroll;
-  }
+.desc-scroll {
+  max-height: 8rem;
+  overflow-y: scroll;
+}
 
 th {
   background-color: darkgray;
@@ -38,16 +38,16 @@ tr:nth-child(even) {
 }
 
 .w-30 {
-    width: fit-content;
+  width: fit-content;
 }
 
 .p-1 {
-    padding: 1%;
+  padding: 1%;
 }
 
 .recipe-name {
-    font-size: 17px;
-    font-weight: bold;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .headerSortDown::after {

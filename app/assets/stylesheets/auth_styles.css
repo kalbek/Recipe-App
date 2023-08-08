@@ -15,11 +15,6 @@
   padding: 2% 20% 0;
 }
 
-.flex-spaced {
-  display: flex;
-  justify-content: space-between;
-}
-
 .bordered {
   outline: 2px solid black;
 }
@@ -72,7 +67,6 @@
 .flex-spaced {
   display: flex;
   justify-content: space-around;
-  /* padding: 2% 20% 0; */
 }
 
 .relative {

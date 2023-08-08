@@ -23,7 +23,7 @@ default: &default
 
 development:
   adapter: postgresql
-  database: postgres
+  database: recipe
   username: postgres
   password: nonstop
   host: localhost

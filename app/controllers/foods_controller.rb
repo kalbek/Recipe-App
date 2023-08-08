@@ -14,5 +14,4 @@ class FoodsController < ApplicationController
     @food = current_user.foods.build
     @current_user = current_user
   end
-
 end

@@ -38,8 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_053538) do
     t.datetime "preparation_time"
     t.text "description"
     t.text "public"
-    t.integer "quantity"
-    t.text "price"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

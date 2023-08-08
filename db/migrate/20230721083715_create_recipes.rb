@@ -7,8 +7,6 @@ class CreateRecipes < ActiveRecord::Migration[7.0]
       t.datetime :preparation_time
       t.text :description
       t.text :public
-      t.integer :quantity
-      t.text :price
     end
   end
 end

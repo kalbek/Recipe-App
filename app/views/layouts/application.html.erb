@@ -11,6 +11,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="relative">
+      <div class="mt-1 pv-50 top-centered rad-10">
+        <div class="flex-spaced">
+          <div class="logo">
+            <p>Recipe App</p>
+          </div>
+          <div class="flex-spaced gap-3 menu">
+            <p>Foods</p>
+            <p>Recipes</p>
+            <p>Public Recipes</p>
+            <p>Shopping List</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <!-- Footer content here -->
+    </footer>
   </body>
 </html>

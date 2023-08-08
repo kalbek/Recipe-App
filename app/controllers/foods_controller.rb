@@ -19,9 +19,9 @@ class FoodsController < ApplicationController
     @food = current_user.foods
 
     if @food.save
-       redirect_to user_foods_path(@food.user, @food), notice: 'Post created successfully.'
+      redirect_to user_foods_path(@food.user, @food), notice: 'Post created successfully.'
     else
-        flash.now[:alert] = @food.errors.full_messages.join(', ')
+      flash.now[:alert] = @food.errors.full_messages.join(', ')
     end
   end
 

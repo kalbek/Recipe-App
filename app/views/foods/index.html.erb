@@ -4,6 +4,36 @@
   <title>User Posts</title>
 </head>
 <body>
-   <p>food-index</p>
+<div class="table-body">
+<div class=" pl-10   flex-column rad-10  relative w-100">
+<div class="relative">
+<div class="absolute btn top-right-corner off-top">
+<%= link_to new_food_path(@user), class: "plain" do %>
+  <p > Add Food </p>
+  <% end  %>
+</div>
+    <table>
+  <tr>
+  <th  class="headerSortUp">Food</th>
+  <th>Measurement Unit</th>
+  <th>Unit Price</th>
+  <th>Actions</th>
+  </tr>
+  <% @user.foods.each do |food| %>
+  <tr>
+    <td><%= food.name %></td>
+    <td><%= food.measurement_unit %></td>
+    <td><%= food.price %></td>
+    <td> 
+    <%= form_with(model: @food, url: food_path(@food, id: food.id), method: :delete, data: { turbo: "false" }) do |form| %>
+      <%= form.submit "delete", data: { confirm: "Are you sure you want to delete this food?" } %>
+      </td>
+  <% end %>
+  </tr>
+  <% end %>
+</table>
+  </div>
+   </div>
+   </div>
 </body>
 </html>

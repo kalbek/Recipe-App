@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: :user
 
   # User foods route
-  get 'users/:user_id/foods', to: 'foods#index', as: :user_foods
+  get 'foods', to: 'foods#index', as: :user_foods
 
   # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food

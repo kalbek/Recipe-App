@@ -39,15 +39,17 @@
     <th>Value</th>
     <th>Actions</th>
     </tr>
-    <% @user.foods.each do |food| %>
+    <% @food.each do |food| %>
     <tr>
       <td><%= food.name %></td>
       <td><%= food.quantity %></td>
       <td><%= food.price %></td>
-      <td > 
+      <td >
+      <% if can? :destroy, food %> 
       <%= form_with(model: @food, url: food_path(@food, id: food.id), method: :delete, data: { turbo: "false" }) do |form| %>
-        <%= form.submit "Modify", data: { confirm: "Are you sure you want to delete this food?" } %>
+        <button type="button">Modify</button>
         <%= form.submit "Remove", data: { confirm: "Are you sure you want to delete this food?" } %>
+      <% end %>
       <% end %>
       </td>
     </tr>

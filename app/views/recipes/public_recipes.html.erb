@@ -1,0 +1,11 @@
+<div>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <h2><%= link_to recipe.name, public_recipe_url(recipe) %></h2>
+      <p><%= recipe.description %></p>
+      <p><%= recipe.cooking_time %></p>
+      <p><%= recipe.preparation_time %></p>
+    </div>
+  <% end %>
+</div>
+

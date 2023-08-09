@@ -23,7 +23,13 @@ Rails.application.routes.draw do
   get 'recipes', to: 'recipes#index', as: :user_recipes
 
   # Specific user food route
+  get 'recipes/:id', to: 'recipes#show', as: :user_recipe
+
+  # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food
+
+  patch 'recipes/:id', to: 'recipes#update'
+
 
   # API routes
   namespace :api, defaults: { format: :json } do

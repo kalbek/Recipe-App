@@ -69,6 +69,14 @@
   justify-content: space-around;
 }
 
+.flex-spaced-between {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
 .relative {
   position: relative;
 }

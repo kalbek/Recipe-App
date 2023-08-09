@@ -41,6 +41,15 @@ tr:nth-child(even) {
   width: fit-content;
 }
 
+.mt-m1 {
+  margin-top: -1rem;
+}
+
+.flexs {
+  display: flex;
+  width: fit-content;
+}
+
 .p-1 {
   padding: 1%;
 }
@@ -66,4 +75,8 @@ tr:nth-child(even) {
 .headerSortUp::after {
   bottom: 10px;
   border-bottom-color: black;
+}
+
+.large {
+  font-size: 24px;
 }

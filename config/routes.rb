@@ -22,6 +22,12 @@ Rails.application.routes.draw do
   # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food
 
+  # Public recipes route
+  get 'public_recipes', to: 'recipes#public_recipes', as: :public_recipes
+
+  # Public recipes show route
+  get 'public_recipes/:id', to: 'recipes#public_recipes_show', as: :public_recipe
+
   # API routes
   namespace :api, defaults: { format: :json } do
     resources :users, only: [] do

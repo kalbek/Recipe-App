@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  let (:user) { User.create!(name: 'Test User', email: 'recipe@mail.com', password: 'password') }
-  let (:recipe) { Recipe.create!(name: 'Test Recipe', user_id: user.id) }
+  let(:user) { User.create!(name: 'Test User', email: 'recipe@mail.com', password: 'password') }
+  let(:recipe) { Recipe.create!(name: 'Test Recipe', user_id: user.id) }
 
   context 'validations' do
     it 'requires a name' do

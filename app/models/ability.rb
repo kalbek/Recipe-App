@@ -6,7 +6,8 @@ class Ability
 
     can :read, :all
     can :destroy, Food, user_id: user.id
+    can :destroy, Recipe, user_id: user.id
     can :manage, Food, user_id: user.id
-
+    can :manage, Recipe, user_id: user.id
   end
 end

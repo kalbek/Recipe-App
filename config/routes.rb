@@ -19,11 +19,14 @@ Rails.application.routes.draw do
   # User foods route
   get 'foods', to: 'foods#index', as: :user_foods
 
-  # User foods route
+  # User recipes route
   get 'recipes', to: 'recipes#index', as: :user_recipes
 
-  # Specific user food route
+  # Specific user recipe route
   get 'recipes/:id', to: 'recipes#show', as: :user_recipe
+
+  # Public recipes route
+  get 'public_recipes', to: 'public_recipes#index', as: :public_recipes
 
   # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food

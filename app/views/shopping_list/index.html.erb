@@ -9,11 +9,16 @@
        Shopping List
     </p>
     <div class="flex-spaced-between">
-    <p>Amount of food items to buy:
+    <% count = 0 %>
+    <% price = 0 %>
+    <% @foods.reject {|food| food.user == current_user}.each do |food| %>
+      <% price += food.price.to_i %>
+      <% count += 1 %>
+    <% end %>
+    <p>Amount of food items to buy: <%= count %>
     <%= form_with(model: @recipe, class: "recipe-form") do |form| %>
       <div class="flexs">
-      <p>Total value of food needed: </p>
-      
+      <p>Total value of food needed: $<%= price %> </p>
       </div>
     <% end %>
     </div>

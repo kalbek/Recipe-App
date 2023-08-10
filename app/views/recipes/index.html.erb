@@ -4,13 +4,21 @@
   <title>User Posts</title>
 </head>
   <body>
-     <div class="flex-column-centered  ">
-  <p class="recipe-name large ">
-    Recipes
-  </p>
-  <div class="flex-column-centered w-100 mt-m1">
+  <div class="flex-column-centered  ">
+  <div class="flex-spaced">
+    <p>&nbsp;</p>
+    <p class="recipe-name large ">
+      Recipes
+    </p>
+    <div>
+      <%= link_to new_recipe_path(@user), class: "plain" do %>
+        <p  class="btn-2"> Add New </p>
+        <% end  %>
+    </div>
+  </div>
+  <div class="flex-column-centered w-100 mt-m1">  
   <%  @recipes.each do |recipe| %>
-    <% if (recipe.public?) || recipe.user == current_user %>
+    <% if recipe.user == current_user %>
         <%= link_to user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "plain" do %>
           <div class="flex-spaced bordered gap-3 p-1">
             <div class="flex-column-start gap-c3">

@@ -17,14 +17,14 @@ class FoodsController < ApplicationController
 
   def create
     @food = current_user.foods
-    
+
     if @food.save
       redirect_to user_foods_path(@food.user, @food), notice: 'Post created successfully.'
     else
       flash.now[:alert] = @food.errors.full_messages.join(', ')
     end
   end
-  
+
   def destroy
     @food = Food.find(params[:id])
     authorize! :destroy, @food # This line checks if the user is authorized to delete the post

@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def index
     @user = current_user
   end
-  
+
   def show
     @user = current_user
     @recipe = @user.recipes.includes(:user).find(params[:id])
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
 
   def destroy
     @recipe = Recipe.find(params[:id])

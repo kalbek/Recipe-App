@@ -27,7 +27,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    # authorize! :destroy, @food # This line checks if the user is authorized to delete the post
+    authorize! :destroy, @food
     @food.destroy
     redirect_to user_foods_path, notice: 'Food was successfully deleted.'
   end

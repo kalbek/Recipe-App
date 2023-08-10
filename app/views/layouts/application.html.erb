@@ -21,7 +21,9 @@
             <p>Foods</p>
             <p>Recipes</p>
             <p>Public Recipes</p>
-            <p>Shopping List</p>
+            <%= link_to shopping_list_path, class: "plain" do %>
+              <p>Shopping List</p>
+            <% end %>
           </div>
         </div>
       </div>

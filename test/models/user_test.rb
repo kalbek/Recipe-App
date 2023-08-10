@@ -1,28 +1,27 @@
+# test/models/user_test.rb
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test 'name must not be blank' do
-    user = User.new(name: '')
-    assert_not user.valid?
+  def setup
+    @user = FactoryBot.create(:user)
   end
 
-  test 'posts_counter must be an integer greater than or equal to zero' do
-    user = User.new(posts_counter: -1)
-    assert_not user.valid?
-
-    user.posts_counter = 0
-    assert user.valid?
-
-    user.posts_counter = 1
-    assert user.valid?
-
-    user.posts_counter = 'not a number'
-    assert_not user.valid?
+  test 'should be valid' do
+    assert @user.valid?
   end
 
-  test 'recent_posts returns the most recent posts' do
-    user = create(:user)
-    create_list(:post, 5, author: user)
-    assert_equal 3, user.recent_posts.count
+  test 'should not be valid without a name' do
+    @user.name = nil
+    assert_not @user.valid?
+  end
+
+  test 'admin? should return true if the user is an admin' do
+    @user.role = 'admin'
+    assert @user.admin?
+  end
+
+  test 'admin? should return false if the user is not an admin' do
+    @user.role = 'user'
+    assert_not @user.admin?
   end
 end

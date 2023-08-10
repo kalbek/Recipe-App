@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   # Public recipes route
   get 'public_recipes', to: 'public_recipes#index', as: :public_recipes
+  
+  # Public recipes route
+  get 'general_shopping_list', to: 'shopping_list#index', as: :shopping_list
 
   # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food

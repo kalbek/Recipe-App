@@ -1,11 +1,40 @@
-<div>
-  <% @recipes.each do |recipe| %>
-    <div>
-      <h2><%= link_to recipe.name, public_recipe_url(recipe) %></h2>
-      <p><%= recipe.description %></p>
-      <p><%= recipe.cooking_time %></p>
-      <p><%= recipe.preparation_time %></p>
-    </div>
-  <% end %>
+<div class="flex-column-centered  ">
+  <p class="recipe-name large ">
+    Public Recipes
+  </p>
+  <div class="flex-column-centered w-100">
+    <% @recipes.each do |recipe| %>
+      <%= link_to user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "plain" do %>
+        <div class="flex-spaced bordered gap-3 p-1">
+          <div class="flex-column-start gap-c3">
+            <p class="recipe-name">
+              <%= recipe.name %>
+            </p>
+            <p class="flexs mt-m1">  by:&nbsp;<%= recipe.user.name %></p>
+          </div>
+          <div class="desc-scroll">
+            <div class="">
+              Total food items:&nbsp;
+              <% @users.each do |user| %>
+                <% if (user.id == recipe.user.id) %>
+                  <%= user.foods.count %>
+                  <% end %>
+                <% end %>
+            </div>
+            <div class="mt-1 flex-start">
+              <% @users.each do |user| %>
+                <% if (user.id == recipe.user.id) %>
+                <% sum = 0 %>
+                <% user.foods.each do |food| %>
+                      <% sum += food.price.to_i %>
+                      
+                      <% end %>
+                      Total price: $<%= sum %>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 </div>
-

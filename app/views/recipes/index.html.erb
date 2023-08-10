@@ -18,7 +18,7 @@
   </div>
   <div class="flex-column-centered w-100 mt-m1">  
   <%  @recipes.each do |recipe| %>
-    <% if (recipe.public?) || recipe.user == current_user %>
+    <% if recipe.user == current_user %>
         <%= link_to user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "plain" do %>
           <div class="flex-spaced bordered gap-3 p-1">
             <div class="flex-column-start gap-c3">

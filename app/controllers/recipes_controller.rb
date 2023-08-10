@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   def show
     @user = current_user
     # @user = User.find(params[:user_id])
-    @recipe = @user.recipes.includes(:user).find(params[:id])
+    # @recipe = @user.recipes.includes(:user).find(params[:id])
+    @recipe = Recipe.includes(:user).find(params[:id])
     @food = Food.all
   end
 

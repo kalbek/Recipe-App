@@ -24,7 +24,6 @@ class RecipesController < ApplicationController
     @recipe.cooking_time ||= Time.current # Set default value if not provided
     @recipe.preparation_time ||= Time.current # Set default value if not provided
 
-
     if @recipe.save
       redirect_to user_recipes_path(@recipe.user, @food), notice: 'Post created successfully.'
     else

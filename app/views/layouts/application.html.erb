@@ -18,16 +18,12 @@
             <p>Recipe App</p>
           </div>
           <div class="flex-spaced gap-3 menu">
-          <%= link_to user_foods_path, class: "plain" do %>
             <p>Foods</p>
-            <% end %>
-          <%= link_to user_recipes_path, class: "plain" do %>
             <p>Recipes</p>
+            <p>Public Recipes</p>
+            <%= link_to shopping_list_path, class: "plain" do %>
+              <p>Shopping List</p>
             <% end %>
-            <%= link_to public_recipes_path, class: "plain" do %>
-              <p>Public Recipes</p>
-              <% end %>
-            <p>Shopping List</p>
           </div>
         </div>
       </div>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Foods</title>
+  <title>User Posts</title>
 </head>
 <body>
 <div class="table-body">
 <div class=" pl-10   flex-column rad-10  relative w-100">
 <div class="relative">
+<div class="absolute btn top-right-corner off-top">
 <%= link_to new_food_path(@user), class: "plain" do %>
-  <div class="absolute btn top-right-corner off-top">
   <p > Add Food </p>
-  </div>
   <% end  %>
+</div>
     <table>
   <tr>
   <th  class="headerSortUp">Food</th>

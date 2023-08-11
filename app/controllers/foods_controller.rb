@@ -8,6 +8,7 @@ class FoodsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    render json: @user.foods.find(params[:id])
   end
 
   def new

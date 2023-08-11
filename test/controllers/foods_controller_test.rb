@@ -1,26 +1,27 @@
 require 'test_helper'
 
-class FoodsControllerTest < ActionController::TestCase
+class FoodsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
-    @user = users(:one) # Assuming you have a user fixture or factory
+    @user = FactoryBot.create(:user)
+    @food = FactoryBot.create(:food, user: @user)
     sign_in @user
-    @food = foods(:one) # Assuming you have a food fixture or factory
   end
 
   test 'should get index' do
-    get :index
+    get foods_path
     assert_response :success
     assert_not_nil assigns(:user)
   end
 
   test 'should show food' do
-    get :show, params: { user_id: @user, id: @food }
+    get user_food_path(user_id: @user, id: @food)
     assert_response :success
     assert_not_nil assigns(:user)
   end
 
   test 'should get new' do
-    get :new
+    get new_food_path
     assert_response :success
     assert_not_nil assigns(:food)
     assert_not_nil assigns(:current_user)
@@ -28,7 +29,7 @@ class FoodsControllerTest < ActionController::TestCase
 
   test 'should create food' do
     assert_difference('Food.count') do
-      post :create, params: { food: { name: 'New Food', quantity: 5 }, user_id: @user }
+      post foods_path, params: { food: { name: 'New Food', measurement_unit: 'grams', quantity: 100, price: 5.0 } }
     end
 
     assert_redirected_to user_foods_path(@user, assigns(:food))
@@ -36,7 +37,7 @@ class FoodsControllerTest < ActionController::TestCase
 
   test 'should destroy food' do
     assert_difference('Food.count', -1) do
-      delete :destroy, params: { id: @food }
+      delete food_path(@food)
     end
 
     assert_redirected_to user_foods_path

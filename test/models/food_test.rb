@@ -3,8 +3,8 @@ require 'test_helper'
 
 class FoodTest < ActiveSupport::TestCase
   def setup
-    @user = users(:one)
-    @food = Food.new(name: 'Apple', quantity: 5, user: @user)
+    @user = FactoryBot.create(:user)
+    @food = FactoryBot.create(:food, user: @user)
   end
 
   test 'should be valid' do

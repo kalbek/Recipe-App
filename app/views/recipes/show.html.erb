@@ -10,7 +10,7 @@
       <%= @recipe.name %>
     </p>
     <div class="flex-spaced-between">
-    <p><b>Preparation time:</b> <%= @recipe.preparation_time.strftime("%H:%M:%S") %></p>
+    <p><b>Preparation time:</b> <%= @recipe.preparation_time.strftime("%H:%M:%S") if @recipe.preparation_time %></p>
     <%= form_with(model: @recipe, class: "recipe-form") do |form| %>
       <div class="flexs">
       <p><b>Public</b></p>
@@ -19,7 +19,7 @@
     <% end %>
     </div>
     <div class="flex-spaced w-30 mt-m1">
-    <b>Cooking time:</b>  <%= @recipe.cooking_time.strftime("%H:%M:%S") %>
+    <p><b>Cooking time:</b>  <%= @recipe.cooking_time.strftime("%Y-%m-%d %H:%M") if @recipe.cooking_time %></p>
     &nbsp;
     </div>
     <div class="flex-spaced-between mt-m1 ">

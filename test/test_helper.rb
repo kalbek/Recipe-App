@@ -19,3 +19,8 @@ class ActionDispatch::IntegrationTest
   include Capybara::DSL
   # Other test configurations...
 end
+
+# test/test_helper.rb
+class ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+end

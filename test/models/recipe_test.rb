@@ -3,8 +3,8 @@ require 'test_helper'
 
 class RecipeTest < ActiveSupport::TestCase
   def setup
-    @user = users(:one)
-    @recipe = Recipe.new(name: 'Apple Pie', user: @user)
+    @user = FactoryBot.create(:user)
+    @recipe = FactoryBot.create(:recipe, user: @user)
   end
 
   test 'should be valid' do

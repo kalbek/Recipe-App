@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show Recipe</title>
+  <%= javascript_include_tag "public-checkbox" %>
+</head>
+  <body>
+    <div class="flex-column-centered w-30 ">
+    <p class="recipe-name large">
+      <%= @recipe.name %>
+    </p>
+    <div class="flex-spaced-between">
+    <p><b>Preparation time:</b> <%= @recipe.preparation_time.strftime("%H:%M:%S") %></p>
+    <%= form_with(model: @recipe, class: "recipe-form") do |form| %>
+      <div class="flexs">
+      <p><b>Public</b></p>
+      <%= form.check_box :public, class: "public-checkbox" %>
+      </div>
+    <% end %>
+    </div>
+    <div class="flex-spaced w-30 mt-m1">
+    <b>Cooking time:</b>  <%= @recipe.cooking_time.strftime("%H:%M:%S") %>
+    &nbsp;
+    </div>
+    <div class="flex-spaced-between mt-m1 ">
+    <p><b>Steps: </b>  </p>
+    <p>&nbsp; </p>
+    </div>
+    <div class="flex-spaced-between mt-m1 ">
+    <p><%= link_to shopping_list_path(@user), class: "btn pt-1 plain " do %>
+         Generate shoping list
+      <% end  %> </p>
+      <% if (@recipe.user == current_user) %>
+    <p><%= link_to new_food_path(@user), class: "btn pt-1 plain" do %>
+        Add ingredient
+      <% end  %>
+      <% end  %>
+      </p>
+    </div>
+    <div class="flex-spaced-between   ">
+    <table>
+    <tr>
+    <th  class="headerSortUp">Food</th>
+    <th>Quantity</th>
+    <th>Value</th>
+    <th>Actions</th>
+    </tr>
+    <% @user.foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.quantity %></td>
+      <td><%= food.price %></td>
+      <td >
+      <% if can? :destroy, food %>
+      <%= form_with(model: @food, url: food_path(@food, id: food.id), method: :delete, data: { turbo: "false" }) do |form| %>
+        <button type="button">Modify</button>
+          <%= form.submit "Remove", data: { confirm: "Are you sure you want to delete this food?" } %>
+        <% end %>
+      <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+    </div>
+  </div>
+  </body>
+</html>

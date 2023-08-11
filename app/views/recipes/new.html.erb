@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Post</title>
+  <title>New Recipe</title>
 </head>
 <body>
- <p> recipes new </p>
+<div class="add-food-fields-container ">
+<p class="recipe-name large ">
+Add New Recipe
+</p>
+<div class="  flex-column-centered w-100 mt-m1">
+<%= form_with(model: @recipe, url: user_recipes_path) do |form| %>
+  <div class="flex-start mt-1">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "add-food-filds" %>
+  </div>
+   
+  <div class="flex-start mt-1">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "add-food-filds-text-area", rows: 5  %>
+  </div>
+
+  <%= form.submit 'Add Recipe', class: "add-food mt-1" %>
 <% end %>
+</div>
+</div>
+ 
 </body>

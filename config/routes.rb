@@ -9,24 +9,33 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Defines the root path route ("/")
-  root to: 'users#index'
+  root to: 'foods#index'
 
-  get 'users', to: 'users#index', as: :users
+  # get 'users', to: 'users#index', as: :users
 
   # User profile route
-  get 'users/:id', to: 'users#show', as: :user
+  # get 'users/:id', to: 'users#show', as: :user
 
   # User foods route
   get 'foods', to: 'foods#index', as: :user_foods
 
+  # User recipes route
+  get 'recipes', to: 'recipes#index', as: :user_recipes
+
+  # Specific user recipe route
+  get 'recipes/:id', to: 'recipes#show', as: :user_recipe
+
+  # Public recipes route
+  get 'public_recipes', to: 'public_recipes#index', as: :public_recipes
+  
+  # Public recipes route
+  get 'general_shopping_list', to: 'shopping_list#index', as: :shopping_list
+
   # Specific user food route
   get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food
 
-  # Public recipes route
-  get 'public_recipes', to: 'recipes#public_recipes', as: :public_recipes
+  patch 'recipes/:id', to: 'recipes#update'
 
-  # Public recipes show route
-  get 'public_recipes/:id', to: 'recipes#public_recipes_show', as: :public_recipe
 
   # API routes
   namespace :api, defaults: { format: :json } do

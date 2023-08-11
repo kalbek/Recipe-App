@@ -16,7 +16,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = current_user.foods.build(food_params)
+    @food = current_user.foods
 
     if @food.save
       redirect_to user_foods_path(@food.user, @food), notice: 'Post created successfully.'
@@ -27,14 +27,8 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    authorize! :destroy, @food
+    # authorize! :destroy, @food # This line checks if the user is authorized to delete the post
     @food.destroy
     redirect_to user_foods_path, notice: 'Food was successfully deleted.'
-  end
-
-  private
-
-  def food_params
-    params.require(:food).permit(:name, :measurement_unit, :quantity, :price)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_090907) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_053538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_090907) do
     t.datetime "cooking_time"
     t.datetime "preparation_time"
     t.text "description"
-    t.boolean "public", default: false
+    t.text "public"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

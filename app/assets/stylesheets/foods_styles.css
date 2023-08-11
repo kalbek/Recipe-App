@@ -17,17 +17,6 @@ td {
   text-decoration: none;
 }
 
-.gap-c3 {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.desc-scroll {
-  max-height: 8rem;
-  overflow-y: scroll;
-}
-
 th {
   background-color: darkgray;
   color: black;
@@ -35,37 +24,6 @@ th {
 
 tr:nth-child(even) {
   background-color: lightgray;
-}
-
-.w-30 {
-  width: fit-content;
-}
-
-.mt-m1 {
-  margin-top: -1rem;
-}
-
-.mt-1 {
-  margin-top: 1rem;
-}
-
-.pt-1 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.flexs {
-  display: flex;
-  width: fit-content;
-}
-
-.p-1 {
-  padding: 1%;
-}
-
-.recipe-name {
-  font-size: 17px;
-  font-weight: bold;
 }
 
 .headerSortDown::after {
@@ -84,8 +42,4 @@ tr:nth-child(even) {
 .headerSortUp::after {
   bottom: 10px;
   border-bottom-color: black;
-}
-
-.large {
-  font-size: 24px;
 }

@@ -22,7 +22,5 @@ class ShoppingListIndexViewTest < ActionDispatch::IntegrationTest
     assert_select 'th', text: 'Food'
     assert_select 'th', text: 'Quantity'
     assert_select 'th', text: 'Price'
-
-
   end
 end

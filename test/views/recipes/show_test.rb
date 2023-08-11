@@ -7,7 +7,8 @@ class RecipesShowViewTest < ActionDispatch::IntegrationTest
     @user = FactoryBot.create(:user)
     sign_in @user
 
-    @recipe = FactoryBot.create(:recipe, user: @user, name: 'Recipe Name', preparation_time: Time.now, cooking_time: Time.now, public: true)
+    @recipe = FactoryBot.create(:recipe, user: @user, name: 'Recipe Name', preparation_time: Time.now,
+                                         cooking_time: Time.now, public: true)
     @food = FactoryBot.create(:food, user: @user)
   end
 

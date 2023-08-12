@@ -31,6 +31,8 @@ This repository contains ruby files with ruby code.
 
 ## 🛠 Built With <a name="built-with">Ruby, Ruby on Rails</a>
 
+![](https://github.com/kalbek/Recipe-App/blob/development/RecipeApp.png?raw=true)
+
 ### Tech Stack <a name="tech-stack">Ruby</a>
 
 <details>

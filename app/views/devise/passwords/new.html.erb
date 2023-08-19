@@ -1,23 +1,29 @@
-<div class="reg">
-<div class=" pl-10 mt-1 bordered flex-column rad-10 w-30">
-<div class="flex-start">
-<h2>Forgot your password?</h2>
+ 
+<html>
+<body>
+
+    <div class="flex-centered bg-primary ctr-primary ">
+<div class=" flex-column rad-10 w-30">
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="col-gap-1">
-  <div class="field flex-start">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  
+  <div class="form-field flex-column-centered mt-m10">
 
-  <div class="actስ  ions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <div class="field flex-start">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email"  %>
+    </div>
 
-</div>
-<%= render "devise/shared/links" %>
-</div>
-</div>
-</div>
+  
+  
+  <div class="actions flex-centered">
+  <%= f.submit "Send me reset password instructions" %>
+  <% end %>
+  </div>
+  </div>
+ 
+
+  </div>
+  </div>
+  </body>
+</html>

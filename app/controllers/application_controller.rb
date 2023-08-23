@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     # logic to add
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || expenses_path
+  end
+
   private
 
   def configure_permitted_parameters

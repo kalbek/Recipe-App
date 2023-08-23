@@ -10,35 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_10_090907) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_14_094616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "foods", force: :cascade do |t|
+  create_table "expenses", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.text "measurement_unit"
-    t.integer "quantity"
-    t.text "price"
-    t.index ["user_id"], name: "index_foods_on_user_id"
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
-  create_table "recipe_foods", force: :cascade do |t|
-    t.bigint "food_id"
-    t.bigint "recipe_id"
-    t.integer "quantity"
-    t.index ["food_id"], name: "index_recipe_foods_on_food_id"
-    t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
-  end
-
-  create_table "recipes", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "payments", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "transaction_id"
     t.string "name"
-    t.datetime "cooking_time"
-    t.datetime "preparation_time"
-    t.text "description"
-    t.boolean "public", default: false
-    t.index ["user_id"], name: "index_recipes_on_user_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_payments_on_author_id"
+    t.index ["transaction_id"], name: "index_payments_on_transaction_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,13 +41,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_10_090907) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "foods", "users"
-  add_foreign_key "recipe_foods", "foods"
-  add_foreign_key "recipe_foods", "recipes"
-  add_foreign_key "recipes", "users"
+  add_foreign_key "expenses", "users"
+  add_foreign_key "payments", "expenses", column: "transaction_id"
+  add_foreign_key "payments", "users", column: "author_id"
 end

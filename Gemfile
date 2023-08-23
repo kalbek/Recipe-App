@@ -10,7 +10,7 @@ gem 'rails', '~> 7.0.6'
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.5'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -24,6 +24,8 @@ gem 'importmap-rails'
 gem 'rswag-api'
 
 gem 'rswag-ui'
+
+gem 'pry'
 
 gem 'omniauth', '~> 1.9.1'
 

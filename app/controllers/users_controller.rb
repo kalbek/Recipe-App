@@ -1,17 +1,12 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.includes(:posts).all
+    @users = User.includes(:payments).all
   end
 
   def show
-    @user = User.includes(:posts).find(params[:id])
+    @user = User.includes(:payments).find(params[:id])
     @users = User.all
-  end
-
-  def posts
-    @user = User.find(params[:user_id])
   end
 end

@@ -2,58 +2,34 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  resources :foods, only: [:new, :create, :destroy]
-  resources :recipes, only: [:new, :create, :destroy]
-  resources :food_recipes, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
+  resources :groups, only: [:new, :create, :destroy]
+  resources :entities, only: [:new, :create, :destroy]
 
   devise_for :users
 
-  # Defines the root path route ("/")
-  root to: 'foods#index'
+  # The root path will be spash screen
+  root to: 'splash#index'
 
-  # get 'users', to: 'users#index', as: :users
-
-  # User profile route
-  # get 'users/:id', to: 'users#show', as: :user
-
-  # User foods route
-  get 'foods', to: 'foods#index', as: :user_foods
-
-  # User recipes route
-  get 'recipes', to: 'recipes#index', as: :user_recipes
-
-  # Specific user recipe route
-  get 'recipes/:id', to: 'recipes#show', as: :user_recipe
-
-  # Public recipes route
-  get 'public_recipes', to: 'public_recipes#index', as: :public_recipes
+  # expenses route
+  get 'expenses', to: 'expenses#index', as: :expenses
   
-  # Public recipes route
-  get 'general_shopping_list', to: 'shopping_list#index', as: :shopping_list
+  # Specific expense route
+  get 'expenses/:id', to: 'expenses#show', as: :expense
 
-  # Specific user food route
-  get 'users/:user_id/foods/:id', to: 'foods#show', as: :user_food
+  # Payments under specific expense
+  get 'expenses/:id/payments', to: 'payments#index', as: :payments
 
-  patch 'recipes/:id', to: 'recipes#update'
+  # Specific payment path
+  get 'expenses/:id/payments/:id', to: 'payments#show', as: :payment
 
+  # new payments path
+  get 'new_payments', to: 'payments#new', as: :new_payment
 
-  # API routes
-  namespace :api, defaults: { format: :json } do
-    resources :users, only: [] do
-      resources :foods, only: :index
-    end
-    resources :foods, only: [] do
-      resources :recipes, only: :index
-      resources :recipes, only: :create
-    end
-    resources :users do
-      resources :foods, only: [] do
-        resources :recipes, only: :index
-      end
-    end
-    resources :foods, only: [] do
-      resources :recipes, only: :create
-    end
+  # Specific expense route
+  get 'new_expenses', to: 'expenses#new', as: :new_expense
+
+  resources :expenses do
+    resources :payments, only: [:new, :create]
   end
-
 end

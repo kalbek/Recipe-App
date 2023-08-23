@@ -1,4 +1,4 @@
-# Recipe-App
+# Expense Tracking App
 
 ## Getting Started
 
@@ -23,9 +23,12 @@ This repository contains ruby files with ruby code.
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Recipe-App <a name="about-project"></a>
+# 📖 Expense Tracking App <a name="about-project"></a>
 
-**Recipe-App** The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
+**Expense Tracking App** The Recipe app keeps track of all your expenses. It will allow you to add an expense categories, and under each of these catagories it helps you keep track of how much you spent, what you spent on and the total amount of each expense categories.  Also, since allows you to choose a nice looking icon for your expense category.
+
+## 🛠 [Live Preview](https://budget-app-f5vg.onrender.com/)
+## 🛠 [Link to video walkthrough](https://www.loom.com/share/397c7ccee387418c968ff7ba402031cc?sid=b05950e0-30ea-485f-b63c-82e47aab6a24)
 
 ## 🛠 Built With <a name="built-with">Ruby, Ruby on Rails</a>
 
@@ -42,15 +45,11 @@ This repository contains ruby files with ruby code.
 
 ### Key Features <a name="key-features"></a>
 
-- Login page and registration page:
-- Food list
-- Recipes list
-- Public recipe list 
-- Recipe details 
-- General shopping list view 
-- General shopping list view 
-
-- **Crateing data-model**
+- register and log in, so that the data is private to them.
+- Expenses list
+- Add new expense category
+- Add payments under each expense category
+- Display sum and amount of each payments and expenses
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,7 +59,7 @@ This repository contains ruby files with ruby code.
 
 To get a local copy up and running, follow these steps.
 
-- git clone https://github.com/kalbek/Recipe-App.git
+- git clone https://github.com/kalbek/Budget-app.git App.git
 - install ruby on your machine
 - install rails on your machine
 - install postgresql on your machine
@@ -74,7 +73,7 @@ In order to run this project you need to install ruby, rails and postgresql on y
 
 - install ruby on your machine
 
-Clone this repository to your desired folder: https://github.com/kalbek/Recipe-App.git
+Clone this repository to your desired folder: https://github.com/kalbek/Budget-app.git Tracking App.git
  
 
 ### Usage
@@ -84,10 +83,9 @@ To use this project modify database.yml file at the development section to speci
 ### Run tests
 command to run:
 - bundle install
-- bundle exec rspec
 
-command to run for integration test:
- - rails test:integration
+command to run all tests:
+ - rails test
  
 ### Deployment
 
@@ -101,17 +99,13 @@ You can deploy this project using gh-pages
 - [github](https://github.com/kalbek)
 - [portfolio](https://kalbek.github.io/Portfolio/)
 
-👤 **Alfie Yang**
-- [github](https://github.com/anbehindY)
-- [portfolio](https://anbehindy.github.io/Portfolio_setup/)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **New features will be added as per project requirement.**
+- [ ] **Link expense tracking app with debit or credit card to track expenses.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,6 +131,7 @@ If you like this project give it a star on github.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+I would like to thank [Gregorie Vella](https://www.behance.net/gregoirevella) for providing [this design guidline](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) in behance.
 I would like to thank Microverse for guiding me on the development of this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
